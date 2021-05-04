@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org" class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title th:id="@{title}"></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" th:href="@{./../css/base.css}">
+    <link rel="stylesheet" th:href="@{./../css/vendor.css}">
+    <link rel="stylesheet" th:href="@{./../css/main.css}">
+
+    <!-- script
+    ================================================== -->
+    <script th:src="@{./../js/modernizr.js}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{./../apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{./../favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{./../favicon-16x16.png}">
+    <link rel="manifest" th:href="@{./../site.webmanifest}">
+
+</head>
+
+<body class="ss-bg-white">
+
+	<input type="text" hidden style="display: none" th:value="@{${id}}" id="id" />
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                      <h3>   <a class="site-logo" th:href="@{./../anasayfa}">
+                  
+                        Kodlama Günlüğü
+                        
+                    </a></h3>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Ara</span>
+                            <input type="search" class="header__search-field" placeholder="Anahtar Kelimeler" value="" name="s" title="Ara:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Ara">
+                    </form>
+        
+                    <a th:href="@{#0}" title="Kapat" class="header__search-close">Kapat</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a th:href="@{#0}" class="header__search-trigger"></a>
+                <a th:href="@{#0}" class="header__menu-toggle"><span>Menü</span></a>
+
+            </div>
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a th:href="@{/anasayfa}" title="">Anasayfa</a></li>
+                    
+                    <li class="has-children current">
+                        <a th:href="@{#0}" title="">Blog</a>
+                        <ul class="sub-menu">
+                        <li><a th:href="@{#}">Fotoğraflı Yazılar</a></li>
+                        <li><a th:href="@{#}">Normal Yazılar</a></li>
+                        </ul>
+                    </li>
+                    <li><a th:href="@{./../page-about}" title="">Hakkında</a></li>
+                    <li><a th:href="@{./../page-contact}" title="">İletişim</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a th:href="@{#0}">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a th:href="@{#0}">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-instagram">
+                        <a th:href="@{#0}">
+                            <span class="screen-reader-text">Instagram</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard">
+
+                    <div class="content__page-header entry__header" th:value="@{${id}}" th:id="@{detail_list}">
+                    
+                        <h1 class="display-1 entry__title" th:id="@{article_title}" ></h1>
+                        <ul class="entry__header-meta">
+                            <li class="date" th:id="@{article_date}"></li>
+                        </ul>
+                    </div> <!-- end entry__header  --> 
+                    <div class="entry__content">
+                        <p class="lead drop-cap" th:id="@{article_content}"></p>
+                        <p>
+                        <img th:src="@{./../images/wheel-1000.jpg}" 
+                             srcset="images/wheel-2000.jpg 2000w, 
+                                     images/wheel-1000.jpg 1000w, 
+                                     images/wheel-500.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                        </p> 
+                        
+                        <p class="entry__tags">
+                            <span>Etiketler</span>
+        
+                            <span class="entry__tag-list">
+                                <a th:href="@{#0}">klinik</a>
+                                <a th:href="@{#0}">mezun</a>
+                                <a th:href="@{#0}">çeşit</a>
+                                <a th:href="@{#0}">çirkin</a>
+                            </span>
+            
+                        </p>
+                    </div> <!-- end entry content -->
+
+                    
+                    <div class="entry__related">
+                        <h3 class="h2">Son Yazılar</h3>
+
+                        <ul class="related">
+                            <li class="related__item">
+                                <a th:href="@{#}" class="related__link">
+                                    <img th:src="@{./../images/thumbs/masonry/walk-600.jpg}" alt="">
+                                </a>
+                                <h5 class="related__post-title">Yazı 1</h5>
+                            </li>
+                            <li class="related__item">
+                                <a th:href="@{#}" class="related__link">
+                                    <img th:src="@{./../images/thumbs/masonry/dew-600.jpg}" alt="">
+                                </a>
+                                <h5 class="related__post-title">Yazı 2</h5>
+                            </li>
+                            <li class="related__item">
+                                <a th:href="@{#}" class="related__link">
+                                    <img th:src="@{./../images/thumbs/masonry/rucksack-600.jpg}" alt="">
+                                </a>
+                                <h5 class="related__post-title">Yazı 3</h5>
+                            </li>
+                        </ul>
+                    </div> <!-- end entry related -->
+
+                </article> <!-- end column large-full entry-->
+
+
+                <div th:id="@{getList}" class="comments-wrap">
+
+                    <div  class="column large-12">
+
+
+                    </div> <!-- end comments -->
+
+                    <div class="column large-12 comment-respond">
+
+                        <!-- START respond -->
+                        <div id="respond">
+            
+                            <h3 class="h2">Yorum ekle<span>E-posta hesabınız yayımlanmayacak</span></h3>
+            
+                            <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                                <fieldset>
+            
+                                    <div class="form-field">
+                                        <input name="cName" id="cName" class="full-width" placeholder="Adınız" value="" type="text">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <input name="cEmail" id="cEmail" class="full-width" placeholder="Mail adresiniz" value="" type="text">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Websiteniz" value="" type="text">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Mesajınız"></textarea>
+                                    </div>
+            
+                                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" onclick="addComment()" value="Gönder" type="submit">
+            
+                                </fieldset>
+                            </form> <!-- end form -->
+            
+                        </div>
+                        <!-- END respond-->
+            
+                    </div> <!-- end comment-respond -->
+            
+                </div> <!-- end comments-wrap -->
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Telif hakkı 2021</span> 
+                        <span>Coder Sisters Tarafından dizayn edildi </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" th:href="@{#top}"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script th:src="@{./../js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{./../js/plugins.js}"></script>
+    <script th:src="@{./../js/main.js}"></script>
+
+	<script th:src="@{./../custom/addComment.js}"></script>
+	
+	<script th:src="@{./../custom/single-standard.js}"></script>
+	
+	<script th:src="@{./../custom/getComments.js}"></script>
+	
+	
+</body>
